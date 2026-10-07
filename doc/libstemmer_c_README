@@ -87,6 +87,15 @@ the traditional "Porter" stemming algorithm for english is included for
 backwards compatibility purposes, but we recommend use of the "English"
 stemmer in preference for new projects.
 
+Snowball 3.0.0 changed the output of the stemmers for several languages.  This
+Dovecot fork of Snowball also includes the Snowball 2.2.0 versions of these,
+so that existing data indexed using them can still be searched.  Dovecot calls
+these stemmer version 1, and the current stemmers version 2
+(SB_STEMMER_DOVECOT_VERSION in libstemmer.h).  The version 1 stemmers can be
+selected by appending "_v1" to the name or ISO 639 code (e.g. "english_v1" or
+"en_v1").  These are only provided for languages where the output changed, so
+e.g. "russian_v1" doesn't exist and "russian" should be used instead.
+
 (Some minor algorithms which are included only as curiosities in the snowball
 website, such as the Lovins stemmer and the Kraaij Pohlmann stemmer, are not
 included in the standard libstemmer sources.  These are not really supported by

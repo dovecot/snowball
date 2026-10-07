@@ -10,6 +10,16 @@ typedef unsigned char sb_symbol;
 /* FIXME - should be able to get a version number for each stemming
  * algorithm (which will be incremented each time the output changes). */
 
+/** Version of the stemmers selected by the plain algorithm names.  This is
+ *  specific to the Dovecot fork of Snowball.  Older versions of the stemmers
+ *  can be selected by appending "_v<version>" to the algorithm name, e.g.
+ *  "en_v1".  Version 1 is the output of Snowball 2.2.0.  An older version
+ *  exists only for the algorithms whose output has changed since it.  If
+ *  "<name>_v<n>" doesn't exist, the stemmer for "<name>_v<n+1>" (or the plain
+ *  name for the latest version) produces the same output.
+ */
+#define SB_STEMMER_DOVECOT_VERSION 2
+
 /** Returns an array of the names of the available stemming algorithms.
  *  Note that these are the canonical names - aliases (ie, other names for
  *  the same algorithm) will not be included in the list.
